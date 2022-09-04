@@ -15,6 +15,7 @@ populateText();
 
 function onFormSubmit(event) {
   event.preventDefault();
+  console.log(formData);
 
   event.currentTarget.reset();
   localStorage.removeItem('feedback-form-state');
@@ -22,8 +23,6 @@ function onFormSubmit(event) {
 
 function onInputChange(event) {
   formData[event.target.name] = event.target.value;
-
-  console.log(formData);
 
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
