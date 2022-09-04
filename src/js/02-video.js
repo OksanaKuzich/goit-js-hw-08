@@ -34,16 +34,3 @@ player
         break;
     }
   });
-
-const obj = {
-  name: 'Max',
-  age: 21,
-  getContact() {
-    console.log('Name: ', this.name, 'Age: ', this.age);
-  },
-  pets: {
-    cat: { name: 'Will' },
-  },
-};
-
-obj.getContact();
