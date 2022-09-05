@@ -32,7 +32,7 @@ function populateText() {
   const parsedMessage = JSON.parse(savedMessage);
 
   if (savedMessage) {
-    refs.input.value = parsedMessage.email;
-    refs.textarea.value = parsedMessage.message;
+    refs.input.value = parsedMessage.email ?? '';
+    refs.textarea.value = parsedMessage.message ?? '';
   }
 }
