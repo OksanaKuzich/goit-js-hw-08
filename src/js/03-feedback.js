@@ -6,7 +6,10 @@ const refs = {
   textarea: document.querySelector('.feedback-form textarea'),
 };
 
-const formData = {};
+const savedMessage = localStorage.getItem('feedback-form-state');
+const parsedMessage = JSON.parse(savedMessage);
+
+const formData = savedMessage ? parsedMessage : {};
 
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInputChange, 500));
@@ -28,9 +31,6 @@ function onInputChange(event) {
 }
 
 function populateText() {
-  const savedMessage = localStorage.getItem('feedback-form-state');
-  const parsedMessage = JSON.parse(savedMessage);
-
   if (savedMessage) {
     refs.input.value = parsedMessage.email ?? '';
     refs.textarea.value = parsedMessage.message ?? '';
